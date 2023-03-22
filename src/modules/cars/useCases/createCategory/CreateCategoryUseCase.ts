@@ -1,14 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { ICategoriesRepository } from "../../repositories/category/ICategoriesRepositories";
 
-interface IRequest {
-    name: string;
-    description: string;
-}
-class CreateCategoryService {
+export class CreateCategoryUseCase {
     constructor(private categoryRepository: ICategoriesRepository) { }
 
-    execute({ name, description }: IRequest) {
+    execute(name: string, description: string) {
         const categoryAlreadExists = this.categoryRepository.findByName(name);
         if (categoryAlreadExists) {
             throw new Error("Category already exists!");
@@ -17,5 +13,3 @@ class CreateCategoryService {
         this.categoryRepository.create({ name, description });
     }
 }
-
-export default CreateCategoryService;
