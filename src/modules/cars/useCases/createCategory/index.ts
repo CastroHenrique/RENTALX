@@ -1,12 +1,17 @@
+/* eslint-disable import-helpers/order-imports */
 /* eslint-disable prettier/prettier */
-import { CategoriesRepository } from '../../repositories/category/CategoriesRepository';
-import { CreateCategoryController } from './CreateCategoryController';
-import { CreateCategoryUseCase } from './CreateCategoryUseCase';
+import { CategoriesRepository } from "../../repositories/implementations/CategoriesRepository";
+import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
+import { CreateCategoryController } from "./CreateCategoryController";
 
-const categoriesRepository = new CategoriesRepository();
+const categoriesRepository = CategoriesRepository.getInstance();
 
-const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository);
+const createCategoryUseCase = new CreateCategoryUseCase(
+    categoriesRepository
+);
 
-const createCategoryController = new CreateCategoryController(createCategoryUseCase);
+const createCategoryController = new CreateCategoryController(
+    createCategoryUseCase
+);
 
 export { createCategoryUseCase, createCategoryController };

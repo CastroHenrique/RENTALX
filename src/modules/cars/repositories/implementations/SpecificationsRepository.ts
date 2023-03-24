@@ -1,6 +1,6 @@
 import { Specification } from "../../model/Specification";
 // eslint-disable-next-line prettier/prettier
-import { ICreateSpecificationDTO, ISpecificationsRepository } from "./ISpecificationsRepository";
+import { ICreateSpecificationDTO, ISpecificationsRepository } from "../ISpecificationsRepository";
 
 class SpecificationsRepository implements ISpecificationsRepository {
     private specifications: Specification[];

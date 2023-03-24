@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { ICategoriesRepository } from "../../repositories/category/ICategoriesRepositories";
+import { ICategoriesRepository } from "../../repositories/ICategoriesRepositories";
 
 export class CreateCategoryUseCase {
     constructor(private categoryRepository: ICategoriesRepository) { }

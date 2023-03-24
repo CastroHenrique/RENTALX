@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Category } from "../../model/Category";
-import { CategoriesRepository } from "../../repositories/category/CategoriesRepository";
+import { CategoriesRepository } from "../../repositories/implementations/CategoriesRepository";
 
 export class ListCategoryUseCase {
     constructor(private categoriesRepository: CategoriesRepository) { }
