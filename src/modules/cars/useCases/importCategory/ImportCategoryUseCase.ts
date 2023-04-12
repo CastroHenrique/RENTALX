@@ -1,16 +1,16 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { parse } from "csv-parse";
+import { parse as csvParse } from "csv-parse";
+
 import fs from "fs";
 
 export class ImportCategoryUseCase {
     execute(file: Express.Multer.File): void {
         const stream = fs.createReadStream(file.path);
 
-        const parseFile = parse();
+        const parseFile = csvParse();
 
         stream.pipe(parseFile);
 
-        parseFile.on("data", async (line) => {
+        parseFile.on("data", (line) => {
             console.log(line);
         });
     }
